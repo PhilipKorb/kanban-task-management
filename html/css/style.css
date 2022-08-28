@@ -1,1 +1,454 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+:root {
+  --primary-1:#645fc3;
+  --primary-2:#5451a2;
+  --primary-3:#47447a;
+  --text-1:#feffff;
+  --text-2:#7b8090;
+  --text-3:#5e5c89;
+  --bg-1:#2c2c38;
+  --bg-2:#21212d;
+  --todo:#43c0eb;
+  --doing:#836ff9;
+  --done:#60e5ad;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary-1);
+  border-radius: 10px;
+}
+
+nav {
+  height: 100vh;
+  width: 350px;
+  background-color: var(--bg-1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  border-right: 1px solid var(--text-2);
+}
+
+nav .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 1rem;
+  left: 0;
+}
+
+nav .logo .burguer__menu {
+  width: 34px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin: 0 1rem;
+}
+
+nav .logo .burguer__menu div {
+  width: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+nav .logo .burguer__menu :nth-child(1) {
+  background-color: var(--primary-1);
+}
+
+nav .logo .burguer__menu :nth-child(2) {
+  background-color: var(--primary-2);
+}
+
+nav .logo .burguer__menu :nth-child(3) {
+  background-color: var(--primary-3);
+}
+
+nav .logo h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: var(--text-1);
+}
+
+nav .board__panel {
+  width: 100%;
+  position: absolute;
+  top: 7rem;
+}
+
+nav .board__panel p {
+  margin: 0 1rem;
+  font-weight: 500;
+  width: auto;
+  height: auto;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+nav .board__panel .boards {
+  width: 98%;
+  height: 65vh;
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+nav .board__panel .boards ul :hover {
+  background-color: var(--primary-1);
+}
+
+nav .board__panel .boards ul :hover a {
+  color: var(--text-1);
+}
+
+nav .board__panel .boards ul li {
+  padding: 1rem;
+  width: 300px;
+  margin: .5rem 0rem;
+  border-radius: 0 30px 30px 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+nav .board__panel .boards ul li a {
+  color: var(--text-2);
+  font-weight: 700;
+  text-transform: capitalize;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+nav .board__panel .boards ul li a i {
+  margin: 0 1rem 0 0;
+}
+
+nav .theme {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  position: absolute;
+  border-radius: 4px;
+  bottom: 3rem;
+  background-color: var(--bg-2);
+  width: 60%;
+  height: 3rem;
+}
+
+nav .theme i {
+  color: var(--text-2);
+}
+
+nav .theme .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+}
+
+nav .theme .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+nav .theme .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--primary-1);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+nav .theme .slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--text-1);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+nav .theme input:checked + .slider {
+  background-color: var(--primary-3);
+}
+
+nav .theme input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px var(--primary-3);
+          box-shadow: 0 0 1px var(--primary-3);
+}
+
+nav .theme input:checked + .slider:before {
+  -webkit-transform: translateX(40px);
+  transform: translateX(40px);
+}
+
+nav #hide__nav {
+  text-align: center;
+  color: var(--text-2);
+  position: absolute;
+  bottom: 1rem;
+}
+
+nav #hide__nav i {
+  margin: 0 .5rem;
+}
+
+@media screen and (max-height: 900px) {
+  nav .board__panel .boards {
+    max-height: 400px;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  nav .board__panel .boards {
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  nav {
+    width: 100vw;
+  }
+}
+
+main {
+  width: calc(100vw - 350px);
+}
+
+main .board__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 5.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--text-2);
+  background-color: var(--bg-1);
+}
+
+main .board__title .left__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .board__title .left__title i {
+  display: none;
+  font-size: 2rem;
+  color: var(--primary-1);
+  cursor: pointer;
+}
+
+main .board__title .left__title h2 {
+  margin: 0 1rem;
+  color: var(--text-1);
+  font-weight: 500;
+}
+
+main .board__title button {
+  margin: 0 1rem;
+  color: var(--text-1);
+  background-color: var(--primary-1);
+  padding: 1rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+main .board__title button i {
+  margin: 0 1rem 0 0;
+}
+
+main .tasks {
+  width: calc(100vw -350px);
+  height: calc(100vh - 5.5rem);
+  background-color: var(--bg-2);
+  overflow-y: hidden;
+  overflow-x: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .tasks .new__colunm {
+  border: 4px dashed var(--text-2);
+  width: 350px;
+  min-width: 350px;
+  height: 100%;
+  margin: 0 .5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  color: var(--text-2);
+}
+
+main .tasks .new__colunm i {
+  font-size: 1.5rem;
+  margin: 0 .5rem 0 0;
+}
+
+main .tasks .new__colunm p {
+  font-size: 2rem;
+}
+
+main .tasks .task__colunm {
+  width: 350px;
+  min-width: 350px;
+  height: 100%;
+  margin: 0 .5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-y: scroll;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+}
+
+main .tasks .task__colunm .task__item {
+  width: 90%;
+  margin: .5rem 0;
+  background-color: var(--bg-1);
+  border-radius: 5px;
+  border: 1px solid var(--text-2);
+}
+
+main .tasks .task__colunm .task__item h4 {
+  color: var(--text-1);
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin: .5rem;
+}
+
+main .tasks .task__colunm .task__item p {
+  margin: 0 .5rem .5rem .5rem;
+  color: var(--text-2);
+  font-weight: 300;
+}
+
+main .tasks .task__colunm__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+}
+
+main .tasks .task__colunm__title span {
+  font-size: 3rem;
+  margin: 0 .5rem 0 1rem;
+}
+
+main .tasks .task__colunm__title p {
+  color: var(--text-2);
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+main .tasks .todo span {
+  color: var(--todo);
+}
+
+main .tasks .doing span {
+  color: var(--doing);
+}
+
+main .tasks .done span {
+  color: var(--done);
+}
+/*# sourceMappingURL=style.css.map */
